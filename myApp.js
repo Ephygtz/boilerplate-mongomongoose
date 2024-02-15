@@ -3,24 +3,33 @@ const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//define schema
-//hack for fcc validation
-const SchemaHack = mongoose.Schema;
-const personSchema = new SchemaHack({
-  name : {
-    type : String,
-    required : true,
-    default : 'name'
-  },
-  email : {
-    type : String,
-    unique : true
-  },
-  age : Number,
-  favoriteFoods : String
+// //define schema
+// //hack for fcc validation
+// const SchemaHack = mongoose.Schema;
+// const personSchema = new SchemaHack({
+//   name : {
+//     type : String,
+//     required : true,
+//     default : 'name'
+//   },
+//   email : {
+//     type : String,
+//     unique : true
+//   },
+//   age : Number,
+//   favoriteFoods : String
+// });
+
+// //compile schema to model
+// const Person = mongoose.model('Person', personSchema);
+
+const Schema22 = mongoose.Schema;
+const personSchema = new Schema22({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
 });
 
-//compile schema to model
 const Person = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
