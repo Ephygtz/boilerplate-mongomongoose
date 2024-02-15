@@ -11,7 +11,7 @@ let personSchema = new mongoose.Schema({
     default : 'name'
   },
   email : {
-    type : Mixed,
+    type : String,
     unique : true
   },
   age : Number,
