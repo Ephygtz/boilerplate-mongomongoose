@@ -4,9 +4,7 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //define schema
-//hack to pass fcc validation
-const SchemaHack = mongoose.Schema;
-let personSchema = new SchemaHack({
+const personSchema = new mongoose.Schema({
   name : {
     type : String,
     required : true,
@@ -21,7 +19,7 @@ let personSchema = new SchemaHack({
 });
 
 //compile schema to model
-let Person = mongoose.model('Person', personSchema);
+const Person = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
